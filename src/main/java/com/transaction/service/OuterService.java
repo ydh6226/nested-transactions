@@ -12,7 +12,7 @@ public class OuterService {
 
     private final InnerService innerService;
 
-//    @Transactional
+    @Transactional
     public void outerMethod() {
         log.info("outerMethod 시작\n");
 

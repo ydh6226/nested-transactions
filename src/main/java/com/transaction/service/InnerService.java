@@ -10,13 +10,13 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class InnerService {
 
-    @Transactional
+    @Transactional(noRollbackFor = IllegalArgumentException.class)
     public String innerMethod(int age) {
         log.info("innerMethod 시작 : " + age);
 
         // db에 age insert
 
-        if (age == 2) {
+        if (age == 1) {
             log.info("innerMethod 예외발생 : " + age + "\n");
             throw new IllegalArgumentException("예외 발생");
         }
